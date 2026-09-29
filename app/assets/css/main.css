@@ -1,0 +1,78 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-crema-100: #fbf8f2;
+  --color-crema-200: #f6f1e7;
+  --color-crema-300: #eee5d3;
+
+  --color-tinta: #2a2521;
+  --color-tinta-light: #4a423b;
+
+  --color-arcilla-50: #fbede5;
+  --color-arcilla-100: #f3d3c1;
+  --color-arcilla-300: #de8f63;
+  --color-arcilla-400: #c96a3f;
+  --color-arcilla: #c1613a;
+  --color-arcilla-600: #a34e2e;
+  --color-arcilla-700: #7e3c24;
+
+  --color-salvia-100: #e4e7da;
+  --color-salvia-300: #aeb89a;
+  --color-salvia: #748064;
+  --color-salvia-600: #5c6650;
+
+  --color-mostaza: #dfa53c;
+  --color-mostaza-600: #bb852a;
+
+  --font-display: 'Fraunces', ui-serif, Georgia, serif;
+  --font-sans: 'Public Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-hand: 'Caveat', cursive;
+
+  --radius-blob: 63% 37% 54% 46% / 55% 48% 52% 45%;
+
+  --shadow-soft: 0 12px 30px -12px rgba(42, 37, 33, 0.25);
+  --shadow-card: 0 2px 0 0 rgba(42, 37, 33, 0.08);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-crema-100 text-tinta font-sans antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display font-medium tracking-tight;
+  }
+
+  ::selection {
+    @apply bg-arcilla-300 text-tinta;
+  }
+}
+
+@layer components {
+  /* Textura de grano sutil, como papel, para huir del look "gradiente IA" */
+  .bg-textura {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+  }
+
+  .subrayado-marcador {
+    background-image: linear-gradient(transparent 62%, var(--color-mostaza) 62%);
+    background-repeat: no-repeat;
+    background-size: 100% 90%;
+  }
+}
+
+@layer utilities {
+  .rotar-leve {
+    transform: rotate(-1.5deg);
+  }
+  .rotar-leve-inv {
+    transform: rotate(1.5deg);
+  }
+}
